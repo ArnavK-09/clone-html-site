@@ -48,10 +48,7 @@ app.get("/", async (req, res) => {
   /**
    * Initializing pptr with browserless
    */
-  const browser = await puppeteer.connect({
-    browserWSEndpoint:
-      "wss://orange-space-halibut-p994qj4j9g4hrvv4-3000.app.github.dev/?token=6R0W53R135510",
-  });
+  const browser = await puppeteer.launch({ /* config */ });
   const page = await browser.newPage();
   const SITE = `https://${req.query.domain ?? "example.com"}`;
 
